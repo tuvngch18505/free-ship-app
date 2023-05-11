@@ -1,0 +1,64 @@
+.progress {
+  height: 70px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+}
+
+.progress-bar-fill {
+  display: inline-grid;
+  height: 40px;
+  background-color: #e0e0e0;
+  text-align: center;
+  align-items: center;
+  font-size: large;
+  color: black;
+}
+
+.Button-Center {
+  align-items: center;
+}
+
+.box {
+  display: inline-flex;
+  align-items: center;
+}
+
+.box-selected {
+  margin-right: 5px;
+}
+
+.design {
+  width: 500px;
+}
+
+.box-input {
+  width: 265px;
+}
+
+.btnCard{
+  width: 40px;
+  height: 35px;
+  
+  
+}
+
+.btnMessage{
+  width: 40px;
+  height: 35px;
+}
+
+img{
+  width: 270px;
+  height: 168px;
+}
+
+
+.legacy-card-container {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+

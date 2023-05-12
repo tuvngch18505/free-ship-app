@@ -104,25 +104,52 @@ function updateProgressBar(booster) {
     .then(response => response.json())
     .then((data) => {
       // caculator 
-      const totalCart = (data.total_price) / 100;
-      console.log(totalCart);
-      const remainingAmount = booster.content.goal - totalCart;
+      // Check free shipping bar top or bot
+      console.log(booster.design.position);
+      if (booster.design.position === "Top Page") {
+        const totalCart = (data.total_price) / 100;
+        console.log(totalCart);
+        const remainingAmount = booster.content.goal - totalCart;
 
-      const progressMessage = remainingAmount <= 0 ? booster.content.goalReachedMessage : booster.content.progressMessage.replace('{order-value-progress}', remainingAmount);
-      if (totalCart === 0) {
-        progressBarFill.textContent = booster.content.message.replace('{order-value}', booster.content.goal);
+        const progressMessage = remainingAmount <= 0 ? booster.content.goalReachedMessage : booster.content.progressMessage.replace('{order-value-progress}', remainingAmount);
+        if (totalCart === 0) {
+          progressBarFill.textContent = booster.content.message.replace('{order-value}', booster.content.goal);
+        } else {
+          progressBarFill.textContent = progressMessage;
+        }
+        progressBarFill.style.position = "absolute";
+        progressBarFill.style.top = "0";
+        progressBarFill.style.left = "0";
+        progressBarFill.style.transition = "width 0.3s ease";
+        progressBarFill.style.backgroundColor = booster.design.backgroundColor;
+        progressBarFill.style.backgroundImage = `url(${booster.design.backgroundImage})`;
+        progressBarFill.style.fontFamily = booster.design.font;
+        progressBarFill.style.fontSize = `${booster.design.fontSize}px`;
+        progressBarFill.style.color = booster.design.messageColor;
+        progressBarFill.style.width = "100%";
+        progressBarFill.style.bottom = 0;
       } else {
-        progressBarFill.textContent = progressMessage;
+        const totalCart = (data.total_price) / 100;
+        console.log(totalCart);
+        const remainingAmount = booster.content.goal - totalCart;
+
+        const progressMessage = remainingAmount <= 0 ? booster.content.goalReachedMessage : booster.content.progressMessage.replace('{order-value-progress}', remainingAmount);
+        if (totalCart === 0) {
+          progressBarFill.textContent = booster.content.message.replace('{order-value}', booster.content.goal);
+        } else {
+          progressBarFill.textContent = progressMessage;
+        }
+        progressBarFill.style.position = "fixed";
+        progressBarFill.style.zIndex = "1000"
+        progressBarFill.style.backgroundColor = booster.design.backgroundColor;
+        progressBarFill.style.backgroundImage = `url(${booster.design.backgroundImage})`;
+        progressBarFill.style.fontFamily = booster.design.font;
+        progressBarFill.style.fontSize = `${booster.design.fontSize}px`;
+        progressBarFill.style.color = booster.design.messageColor;
+        progressBarFill.style.width = "100%";
+        progressBarFill.style.bottom = 0;
       }
 
-      progressBarFill.style.backgroundColor = booster.design.backgroundColor;
-      progressBarFill.style.backgroundImage = `url(${booster.design.backgroundImage})`;
-      progressBarFill.style.fontFamily = booster.design.font;
-      progressBarFill.style.fontSize = `${booster.design.fontSize}px`;
-      progressBarFill.style.color = booster.design.messageColor;
-      progressBarFill.style.width = "100%";
-      progressBarFill.style.bottom = 0;
-     
 
     })
 }

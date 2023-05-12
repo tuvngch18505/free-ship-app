@@ -96,6 +96,7 @@ export function BoosterForm({ Booster: InitialBooster }) {
 
     const handleImageClick = (imageURL) => {
         setBackgroundImage(imageURL);
+        setCardColor("#ffffff");
     }
 
 
@@ -383,45 +384,45 @@ export function BoosterForm({ Booster: InitialBooster }) {
         ]
 
 
-    /*
-         This array is used in a select field in the form to manage discount options.
+//     /*
+//          This array is used in a select field in the form to manage discount options.
      
-         It will be extended when the frontend is connected to the backend and the array is populated with discount data from the store.
+//          It will be extended when the frontend is connected to the backend and the array is populated with discount data from the store.
      
-         For now, it contains only the default value.
-       */
+//          For now, it contains only the default value.
+//        */
 
-    /*
-   This function updates the form state whenever a user selects a new discount option.
-   */
-    const handleDiscountChange = useCallback((id) => {
-        discountId.onChange(id);
-        discountCode.onChange(DISCOUNT_CODES[id] || "");
+//     /*
+//    This function updates the form state whenever a user selects a new discount option.
+//    */
+//     const handleDiscountChange = useCallback((id) => {
+//         discountId.onChange(id);
+//         discountCode.onChange(DISCOUNT_CODES[id] || "");
 
-    }, [])
+//     }, [])
 
-    const {
-        data: shopData,
-        isLoading: isLoadingShopData,
-        isError: shopDataError,
-        /* useAppQuery makes a query to `/api/shop-data`, which the backend authenticates before fetching the data from the Shopify GraphQL Admin API */
-    } = useAppQuery({ url: "/api/shop-data" });
-    /*
-       This array is used in a select field in the form to manage discount options
-     */
-    const discountOptions = shopData ? [
-        NO_DISCOUNT_OPTION,
-        ...shopData.codeDiscountNodes.edges.map(
-            ({ node: { id, codeDiscount } }) => {
-                DISCOUNT_CODES[id] = codeDiscount.codes.edges[0].node.code;
+//     const {
+//         data: shopData,
+//         isLoading: isLoadingShopData,
+//         isError: shopDataError,
+//         /* useAppQuery makes a query to `/api/shop-data`, which the backend authenticates before fetching the data from the Shopify GraphQL Admin API */
+//     } = useAppQuery({ url: "/api/shop-data" });
+//     /*
+//        This array is used in a select field in the form to manage discount options
+//      */
+//     const discountOptions = shopData ? [
+//         NO_DISCOUNT_OPTION,
+//         ...shopData.codeDiscountNodes.edges.map(
+//             ({ node: { id, codeDiscount } }) => {
+//                 DISCOUNT_CODES[id] = codeDiscount.codes.edges[0].node.code;
 
-                return {
-                    label: codeDiscount.codes.edges[0].node.code,
-                    value: id,
-                }
-            }
-        )
-    ] : [];
+//                 return {
+//                     label: codeDiscount.codes.edges[0].node.code,
+//                     value: id,
+//                 }
+//             }
+//         )
+//     ] : [];
 
     const panels = [
         {
@@ -478,7 +479,7 @@ export function BoosterForm({ Booster: InitialBooster }) {
                                         autoComplete="off"
                                     />
                                 </LegacyCard.Section>
-                                <LegacyCard.Section title="Discount"
+                                {/* <LegacyCard.Section title="Discount"
                                     actions={[
                                         {
                                             content: "Create discount",
@@ -504,7 +505,7 @@ export function BoosterForm({ Booster: InitialBooster }) {
                                         disabled={isLoadingShopData || shopDataError}
                                         labelHidden
                                     />
-                                </LegacyCard.Section>
+                                </LegacyCard.Section> */}
                                 <LegacyCard.Section>
                                     <Button textAlign="end" onClick={() => handleTabChange(1)}>
                                         Continute to Design

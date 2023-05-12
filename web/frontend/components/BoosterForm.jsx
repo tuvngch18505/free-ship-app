@@ -56,8 +56,8 @@ export function BoosterForm({ Booster: InitialBooster }) {
     const [templateSelected, setTemplateSelected] = useState(Booster?.design.template || 'Custom');
     const [popoverActive, setPopoverActive] = useState(false);
     const [popoverActive1, setPopoverActive1] = useState(false);
-    const [discountId, setDiscountId] = useState(Booster?.discountId || NO_DISCOUNT_OPTION.value);
-    const [discountCode, setDiscountCode] = useState(Booster?.discountCode || "");
+    // const [discountId, setDiscountId] = useState(Booster?.discountId || NO_DISCOUNT_OPTION.value);
+    // const [discountCode, setDiscountCode] = useState(Booster?.discountCode || "");
     const [cardColor, setCardColor] = useState(Booster?.design.backgroundColor || '#dfd9d9');
     const handleCardColorChange = (value) => {
         setCardColor(value.hex);

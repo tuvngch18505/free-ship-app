@@ -25,13 +25,13 @@ import { useAppQuery } from "../hooks";
 import { useAuthenticatedFetch } from "@shopify/app-bridge-react";
 import { useParams } from "react-router-dom";
 
-const NO_DISCOUNT_OPTION = { label: "No discount", value: "" };
-/*
-  The discount codes available in the store.
+// const NO_DISCOUNT_OPTION = { label: "No discount", value: "" };
+// /*
+//   The discount codes available in the store.
 
-  This variable will only have a value after retrieving discount codes from the API.
-*/
-const DISCOUNT_CODES = {};
+//   This variable will only have a value after retrieving discount codes from the API.
+// */
+// const DISCOUNT_CODES = {};
 
 
 export function BoosterForm({ Booster: InitialBooster }) {

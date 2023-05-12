@@ -14,8 +14,7 @@ import {
 import { BoosterIndex } from "../components";
 import { useEffect, useState } from 'react';
 import { useAppQuery } from "../hooks";
-import dotenv from "dotenv"
-dotenv.config;
+
 
 
 export default function Hompage() {

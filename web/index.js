@@ -39,7 +39,6 @@ app.use(bodyParser.json());
 //   console.log(req);
 // });
 app.use("*", async (req, res, next) => {
-  console.log(req.originalUrl);
   next();
 });
 

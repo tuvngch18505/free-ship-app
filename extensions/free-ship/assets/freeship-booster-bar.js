@@ -89,6 +89,7 @@ function getBooster() {
       .then((booster) => {
         // Save data to local storage
         localStorage.setItem('boosterData', JSON.stringify(booster));
+        
 
         updateProgressBar(booster);
       })

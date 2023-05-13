@@ -87,10 +87,11 @@ export default function Hompage() {
         setIsBannerVisible(false);
     }
 
-    let searchParams = new URLSearchParams(window.location.search);
-    let shop_domain = searchParams.get("shop");
+    // let searchParams = new URLSearchParams(window.location.search);
+    // let shop_domain = searchParams.get("shop");
+   
 
-    const enableAppUrl = `https://${shop_domain}/admin/themes/current/editor?context=apps&appEmbed=${process.env.SHOPIFY_FREE_SHIP_ID}/app-embed`
+    const enableAppUrl = `https://admin.shopify.com/store/quick-start-86c819cd/themes/148973846802/editor?context=apps`
       
     return (
         <>
